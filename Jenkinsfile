@@ -19,7 +19,6 @@ try {
   stage('Build Maven'){
     node('master'){
       withMaven(maven: 'apache-maven3.6'){
-      sh "cd my-app" 
       sh "mvn clean package"
       } 
     }
