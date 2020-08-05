@@ -12,14 +12,15 @@ try {
   stage('Clone Repo'){
     node('master'){
       cleanWs()
-      checkout([$class: 'GitSCM', branches: [[name: '*/$GIT_BRANCH']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:powerupcloud/TaxiCabApplication.git']]])
+      checkout([$class: 'GitSCM', branches: [[name: '*/$GIT_BRANCH']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:chrisolido/web-app.git']]])
     }
   }
 
   stage('Build Maven'){
     node('master'){
       withMaven(maven: 'apache-maven3.6'){
-       sh "mvn clean package"
+      sh "cd my-app" 
+      sh "mvn clean package"
       } 
     }
   }
