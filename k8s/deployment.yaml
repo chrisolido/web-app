@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web-app-ENVIRONMENT-BUILD_NUMBER
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web-app
+        version: "BUILD_NUMBER"
+    spec:
+      containers:
+      - name: web-app-ENVIRONMENT-BUILD_NUMBER
+        image: IMAGE
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
