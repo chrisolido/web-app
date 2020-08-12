@@ -7,7 +7,6 @@ metadata:
     version: "BUILD_NUMBER"
   spec:
     replicas: 10
-      selector:
       matchLabels:
       versions: "BUILD_NUMBER"
     template:
