@@ -140,7 +140,7 @@ stage('Validate Prod Green Env') {
      if (userInput['PROD_BLUE_DEPLOYMENT'] == false) {
     	withEnv(["KUBECONFIG=${JENKINS_HOME}/.kube/prod-config"]){
         	GREEN_SVC_NAME = sh (
-          		script: "yq .metadata.name k8s/service.yaml | tr -d '\"'",
+          		script: "yq metadata.name k8s/service.yaml | tr -d '\"'",
           		returnStdout: true
         	).trim()
         	GREEN_LB = sh (
