@@ -10,13 +10,13 @@ metadata:
       selector:
       matchLabels:
       versions: "BUILD_NUMBER"
-  template:
-    metadata:
-      labels:
-        app: web-app-ENVIRONMENT-BUILD_NUMBER
-        version: "BUILD_NUMBER"
-   spec:
-      containers:
+    template:
+      metadata:
+        labels:
+          app: web-app-ENVIRONMENT-BUILD_NUMBER
+          version: "BUILD_NUMBER"
+  spec:
+    containers:
       - name: web-app-ENVIRONMENT-BUILD_NUMBER
         image: IMAGE
         imagePullPolicy: IfNotPresent
