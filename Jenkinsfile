@@ -51,7 +51,7 @@ try {
         	sh "sed -i 's|BUILD_NUMBER|01|g' k8s/*.yaml"
         	sh "kubectl apply -f k8s"
         	DEPLOYMENT = sh (
-          		script: 'cat k8s/deployment.yaml | yq -r .metadata.name',
+          		script: 'cat k8s/deployment.yaml | yq r .metadata.name',
           		returnStdout: true
         	).trim()
         	echo "Creating k8s resources..."
@@ -105,7 +105,7 @@ stage('Deploy on Prod') {
         		sh "sed -i 's|dev|prod|g' k8s/*.yaml"
         		sh "kubectl apply -f k8s"
         		DEPLOYMENT = sh (
-          			script: 'cat k8s/deployment.yaml | yq -r .metadata.name',
+          			script: 'cat k8s/deployment.yaml | yq r .metadata.name',
           			returnStdout: true
         		).trim()
         		echo "Creating k8s resources..."
