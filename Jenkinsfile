@@ -4,7 +4,7 @@ properties([
         string(defaultValue: "master", description: 'Which Git Branch to clone?', name: 'GIT_BRANCH'),
         string(defaultValue: "1234567", description: 'AWS Account Number?', name: 'ACCOUNT'),
         string(defaultValue: "", description: 'Blue Service Name to patch in Prod Environment', name: 'PROD_BLUE_SERVICE'),
-        string(defaultValue: "web-app-ecr", description: 'AWS ECR Repository where built docker images will be pushed.', name: 'ECR_REPO_NAME')
+        string(defaultValue: "web", description: 'AWS ECR Repository where built docker images will be pushed.', name: 'ECR_REPO_NAME')
 	])
 ])
 try {
