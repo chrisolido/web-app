@@ -9,7 +9,7 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      versions: "BUILD_NUMBER"
+      app:  web-app-ENVIRONMENT-BUILD_NUMBER
   template:
     metadata:
       labels:
