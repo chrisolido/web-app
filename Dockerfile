@@ -1,3 +1,4 @@
-FROM java
-ADD target/my-app-1.0-SNAPSHOT.jar /mnt/com.mycompany.app.App
-CMD java -jar /mnt/com.mycompany.app.App
+FROM tomcat:latest
+ADD target/my-app-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
+EXPOSE 8081
+CMD ["catalina.sh", "run"]
