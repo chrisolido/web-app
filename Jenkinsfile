@@ -57,11 +57,11 @@ try {
         	echo "Creating k8s resources..."
         	sleep 180
         	DESIRED= sh (
-          		script: "kubectl get deployment/$DEPLOYMENT | awk '{print \$2}' | grep -v DESIRED",
+          		script: "kubectl get deployment/$DEPLOYMENT | awk '{print $2}' | grep -v DESIRED",
           		returnStdout: true
          	).trim()
         	CURRENT= sh (
-          		script: "kubectl get deployment/$DEPLOYMENT | awk '{print \$3}' | grep -v CURRENT",
+          		script: "kubectl get deployment/$DEPLOYMENT | awk '{print $3}' | grep -v CURRENT",
           		returnStdout: true
          	).trim()
         	if (DESIRED.equals(CURRENT)) {
@@ -111,11 +111,11 @@ stage('Deploy on Prod') {
         		echo "Creating k8s resources..."
         		sleep 180
         		DESIRED= sh (
-          			script: "kubectl get deployment/$DEPLOYMENT | awk '{print \$2}' | grep -v DESIRED",
+          			script: "kubectl get deployment/$DEPLOYMENT | awk '{print $2}' | grep -v DESIRED",
           			returnStdout: true
          		).trim()
         		CURRENT= sh (
-          			script: "kubectl get deployment/$DEPLOYMENT | awk '{print \$3}' | grep -v CURRENT",
+          			script: "kubectl get deployment/$DEPLOYMENT | awk '{print $3}' | grep -v CURRENT",
           			returnStdout: true
          		).trim()
         		if (DESIRED.equals(CURRENT)) {
