@@ -6,18 +6,19 @@ metadata:
     app:  web-app-ENVIRONMENT-BUILD_NUMBER
     version: "BUILD_NUMBER"
   spec:
-    replicas: 10
+    replicas: 3
+    selector:
       matchLabels:
-      versions: "BUILD_NUMBER"
+        versions: "BUILD_NUMBER"
     template:
       metadata:
         labels:
           app: web-app-ENVIRONMENT-BUILD_NUMBER
           version: "BUILD_NUMBER"
-  spec:
-    containers:
-      - name: web-app-ENVIRONMENT-BUILD_NUMBER
-        image: IMAGE
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8080
+      spec:
+        containers:
+        - name: web-app-ENVIRONMENT-BUILD_NUMBER
+          image: IMAGE
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8080
