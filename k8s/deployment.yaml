@@ -3,18 +3,19 @@ kind: Deployment
 metadata:
   name: web-app-ENVIRONMENT-BUILD_NUMBER
   labels:
+    app:  web-app-ENVIRONMENT-BUILD_NUMBER
     version: "BUILD_NUMBER"
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
+  spec:
+    replicas: 10
+      selector:
+      matchLabels:
       versions: "BUILD_NUMBER"
   template:
     metadata:
       labels:
-        app: web-app
+        app: web-app-ENVIRONMENT-BUILD_NUMBER
         version: "BUILD_NUMBER"
-    spec:
+   spec:
       containers:
       - name: web-app-ENVIRONMENT-BUILD_NUMBER
         image: IMAGE
