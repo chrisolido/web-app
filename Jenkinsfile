@@ -19,8 +19,7 @@ try {
   stage('Build Maven'){
     def mnHome = tool name: 'maven-3.6', type: 'maven'
     def mvnCMD = "${mvnHome}/bin/mvn"
-    sh "mvn clean package"
-    } 
+    sh "mvn clean package" 
   }
 
   stage('Build Docker Image') {
