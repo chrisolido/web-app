@@ -17,11 +17,10 @@ try {
   }
 
   stage('Build Maven'){
-    node('master'){
-      withMaven(maven: 'apache-maven3.6'){
-      sh "mvn clean package"
-      } 
-    }
+    def mnHome = tool name: 'maven-3.6', type: 'maven'
+    def mvnCMD = "${mvnHome}/bin/mvn"
+    sh "mvn clean package"
+    } 
   }
 
   stage('Build Docker Image') {
